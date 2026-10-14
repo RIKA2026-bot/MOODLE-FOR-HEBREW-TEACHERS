@@ -53,6 +53,13 @@
             display: block;
             background-color: white;
             padding: 2px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: zoom-in;
+        }
+
+        .screenshot:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 20px -3px rgba(0, 0, 0, 0.12);
         }
 
         .screenshot.small {
@@ -73,10 +80,25 @@
             margin-left: 0.75rem;
             flex-shrink: 0;
         }
+
+        /* מודל להגדלת תמונות */
+        #imageModal {
+            transition: opacity 0.25s ease-out;
+        }
+        #imageModal.hidden {
+            display: none !important;
+        }
     </style>
 </head>
-<body class="leading-relaxed">
+<body class="leading-relaxed relative">
 
+    <!-- מודל להגדלת תמונות (Lightbox) -->
+    <div id="imageModal" class="fixed inset-0 z-50 hidden bg-black/90 flex items-center justify-center p-4 cursor-zoom-out" onclick="closeModal()">
+        <button class="absolute top-6 right-8 text-white hover:text-gray-300 text-5xl font-bold transition-colors focus:outline-none" onclick="closeModal()">&times;</button>
+        <img id="modalImg" class="max-w-full max-h-[92vh] rounded-lg shadow-2xl object-contain transition-transform duration-300 transform scale-95" src="" alt="תמונה מוגדלת" onclick="event.stopPropagation()">
+    </div>
+
+    <!-- Header -->
     <header class="bg-brand-purple text-white py-12 px-6 text-center border-b-[6px] border-[#ff66c4]">
         <div class="max-w-5xl mx-auto">
             <h1 class="text-3xl md:text-5xl font-bold mb-3 tracking-tight">פשוט בעברית</h1>
@@ -87,12 +109,15 @@
     <div class="gradient-brand h-1 w-full mb-12"></div>
 
     <main class="max-w-6xl mx-auto px-6">
-      <div class="bg-[#fff0f8] text-[#e052aa] px-6 py-3 rounded-xl mb-10 text-center text-lg border border-[#ff66c4]/30 max-w-xl mx-auto shadow-sm flex items-center justify-center gap-2">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        
+        <!-- הודעת טיפ מעודכנת -->
+        <div class="bg-[#fff0f8] text-[#e052aa] px-6 py-4 rounded-xl mb-12 text-center text-lg border border-[#ff66c4]/30 max-w-2xl mx-auto shadow-sm flex items-center justify-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
             </svg>
-            <strong>טיפ:</strong> צילומי המסך קטנים? פשוט לחצו עליהם כדי להגדיל.
-        </div>  
+            <span><strong>שימו לב:</strong> ניתן להגדיל את צילומי המסך לקריאה בלחיצה על התמונה.</span>
+        </div>
+
         <!-- חלק א' -->
         <h2 class="text-3xl text-brand-purple font-bold mb-10 border-b-2 border-[#91e3fb] pb-2 inline-block">חלק א׳ – פתיחת מרחב כיתתי</h2>
         
@@ -151,7 +176,17 @@
                 <h3 class="text-2xl font-bold mb-3 flex items-center text-brand-purple">
                     <span class="step-number">4</span> עדכון שם ובאנר
                 </h3>
-                <p>תחת לשונית <strong>"הגדרות"</strong> במרחב הלימוד, עברו ל<strong>"עריכת הגדרות מרחב-לימוד"</strong>. תוכלו לערוך שם את שם המרחב. גללו מטה והעלו את תמונת הבאנר המעוצבת של התוכנית כדי שהמרחבים ייראו אחידים ומזמינים ("המרחבים שלי").</p>
+                <p>תחת לשונית <strong>"הגדרות"</strong> במרחב הלימוד, עברו ל<strong>"עריכת הגדרות מרחב-לימוד"</strong>. תוכלו לערוך שם את שם המרחב. גללו מטה והעלו את תמונת הבאנר המעוצבת של התוכנית כדי שהמרחבים ייראו אחידים ומזמינים.</p>
+                
+                <div class="mt-6 mb-4 bg-white p-4 border border-gray-100 rounded-xl shadow-sm">
+                    <p class="font-semibold text-gray-700 mb-3">אין לכם את תמונת הבאנר של התוכנית?</p>
+                    <a href="brand-banner.png" download="באנר-פשוט-בעברית.png" class="inline-flex items-center justify-center w-full md:w-auto px-6 py-3 bg-[#ff66c4] hover:bg-[#e052aa] text-white font-bold rounded-lg shadow-md transition-colors duration-200">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                        </svg>
+                        הורדת תמונת הבאנר למחשב
+                    </a>
+                </div>
             </div>
             <div class="screenshot-grid">
                 <img src="edit-course-all-fields.png.png" alt="עריכת הגדרות" class="screenshot">
@@ -180,15 +215,16 @@
 
         <!-- חלק ג' -->
         <h2 class="text-3xl text-brand-purple font-bold mb-10 mt-16 border-b-2 border-[#91e3fb] pb-2 inline-block">חלק ג׳ – שיוך תלמידים</h2>
-        <p class="text-lg font-bold text-brand-purple mb-8">עם סיום הקמת המרחבים לכל כיתה - יש לשייך תלמידים</p>
+        <p class="text-lg font-bold text-brand-purple mb-8">עם סיום הקמת המרחבים לכל כיתה - יש לשייך תלמידים:</p>
 
         <div class="step-container">
             <div class="text-content">
                 <h3 class="text-2xl font-bold mb-3 flex items-center text-brand-purple">
-                    <span class="step-number">6</span> יצירת אפשרות של שיוך עצמי לתלמיד:
+                    <span class="step-number">6</span> יצירת אפשרות של שיוך עצמי
                 </h3>
-                <p>המורה לוחץ על משתמשים, לוחץ על החץ הקטן ליד משתתפים רשומים , שיטת שיוך לתפקיד, שיוך עצמי ,  ומגדירים שמי שמקבל את הקישור יכול לשייך את עצמו.</p>
-                <p class="mt-3">המורה מעתיק את כתובת המרחב שלו , מהדף הראשי של המרחב החדש עם התכנים שיובאו. ונותן לתלמידים.</p>
+                <p>לחצו על <strong>"משתתפים"</strong>. לחצו על החץ הקטן ליד הכותרת "משתתפים רשומים". מהרשימה בחרו: <strong>"שיטות שיוך לתפקיד"</strong>.</p>
+                <p class="mt-3">במסך שיפתח ראו "הוספת מנגנון שיוך לתפקיד בקורס" - לחצו על הרשימה ובחרו <strong>"שיוך עצמי"</strong>.</p>
+                <p class="mt-3">העתיקו את כתובת המרחב (מהדף הראשי של המרחב) ושלחו לתלמידים.</p>
             </div>
             <div class="screenshot-grid row">
                 <img src="articipants-tab.png" alt="משתתפים" class="screenshot small">
@@ -203,15 +239,62 @@
                 <h3 class="text-2xl font-bold mb-3 flex items-center text-brand-purple">
                     <span class="step-number">7</span> הנחיות לתלמידים
                 </h3>
-                <p>התלמידים יכנסו לבית הספר הוירטואלי, יזדהו עם הזדהות אחידה, בלשונית חדשה ידביקו את הקישור ויצטרפו לסביבה.</p>
-                <p class="mt-3">בפעמים הבאות - בכניסה לבית הספר הוירטואלי, המרחבים שלי, יכלו לראות את המודל ולהכנס אליו .</p>
+                <p>הנחו את התלמידים להיכנס לבית הספר הוירטואלי ולהזדהות עם הזדהות אחידה. לאחר מכן, פתחו לשונית חדשה, הדביקו את הקישור והצטרפו לסביבה.</p>
+                <p class="mt-3">בפעמים הבאות - בכניסה לבית הספר הוירטואלי, תחת "המרחבים שלי", התלמידים יוכלו לראות את המודל ולהיכנס אליו ישירות.</p>
             </div>
         </div>
         
         <div class="text-center mt-20 mb-16">
-            <h2 class="text-5xl font-bold text-brand-pink font-regga">בהצלחה</h2>
+            <h2 class="text-5xl font-bold text-brand-pink font-regga">בהצלחה!</h2>
         </div>
     </main>
 
+    <!-- סקריפט מחוזק ואמין להפעלת הגדלת התמונות -->
+    <script>
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImg');
+
+        // פתיחת המודל
+        function openImage(src, alt) {
+            modalImg.src = src;
+            modalImg.alt = alt || "תמונה מוגדלת";
+            modal.classList.remove('hidden');
+            // ביצוע האנימציה של הכניסה
+            setTimeout(() => {
+                modal.classList.add('opacity-100');
+                modalImg.classList.remove('scale-95');
+                modalImg.classList.add('scale-100');
+            }, 10);
+            document.body.style.overflow = 'hidden'; // מניעת גלילה ברקע
+        }
+
+        // סגירת המודל
+        function closeModal() {
+            modal.classList.remove('opacity-100');
+            modalImg.classList.remove('scale-100');
+            modalImg.classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                modalImg.src = ""; // איפוס כתובת
+                document.body.style.overflow = ''; // החזרת גלילה
+            }, 250);
+        }
+
+        // האזנה ללחיצה על כל התמונות המיועדות להגדלה
+        document.addEventListener("DOMContentLoaded", function() {
+            const images = document.querySelectorAll('.screenshot');
+            images.forEach(img => {
+                img.addEventListener('click', function(e) {
+                    e.stopPropagation(); // מניעת התנגשויות
+                    openImage(this.src, this.alt);
+                });
+            });
+        });
+
+        // סגירה עם מקש ESC
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeModal();
+        });
+    </script>
 </body>
 </html>
