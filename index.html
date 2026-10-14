@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>פשוט בעברית – פותחים מרחב למידה כיתתי</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;500;600;700&family=Reggae+One&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Assistant', sans-serif; background-color: #f8fafc; overflow-x: hidden; color: #334155; }
+        h1, h2, .font-regga { font-family: 'Reggae One', 'Assistant', sans-serif; }
+        .text-brand-purple { color: #372a74; }
+        .bg-brand-purple { background-color: #372a74; }
+        .text-brand-pink { color: #ff66c4; }
+        .bg-brand-pink { background-color: #ff66c4; }
+        .gradient-brand { background: linear-gradient(90deg, #91e3fb 0%, #ff66c4 100%); }
+        
+        .step-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            align-items: start;
+            margin-bottom: 5rem;
+        }
+        @media (min-width: 768px) {
+            .step-container { grid-template-columns: 5fr 7fr; }
+        }
+        
+        .text-content {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            position: sticky;
+            top: 2rem;
+        }
+
+        .screenshot-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .screenshot-grid.row {
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        .screenshot {
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px -3px rgba(0, 0, 0, 0.08);
+            width: 100%;
+            height: auto;
+            display: block;
+            background-color: white;
+            padding: 2px;
+        }
+
+        .screenshot.small {
+            max-width: 48%;
+        }
+        
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: white;
+            background: linear-gradient(135deg, #372a74, #ff66c4);
+            margin-left: 0.75rem;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+<body class="leading-relaxed">
+
+    <!-- Header -->
+    <header class="bg-brand-purple text-white py-12 px-6 text-center border-b-[6px] border-[#ff66c4]">
+        <div class="max-w-5xl mx-auto">
+            <h1 class="text-3xl md:text-5xl font-bold mb-3 tracking-tight">פשוט בעברית</h1>
+            <h2 class="text-xl md:text-2xl font-medium text-[#91e3fb]">מדריך למורים: פתיחת מרחב למידה כיתתי</h2>
+        </div>
+    </header>
+
+    <div class="gradient-brand h-1 w-full mb-12"></div>
+
+    <main class="max-w-6xl mx-auto px-6">
+        
+        <!-- חלק א' -->
+        <h2 class="text-3xl text-brand-purple font-bold mb-10 border-b-2 border-[#91e3fb] pb-2 inline-block">חלק א׳ – פתיחת מרחב כיתתי</h2>
+        
+        <div class="step-container">
+            <div class="text-content">
+                <h3 class="text-2xl font-bold mb-3 flex items-center text-brand-purple">
+                    <span class="step-number">1</span> כניסה ומעבר למודל
+                </h3>
+                <p>היכנסו לפורטל בית הספר הווירטואלי ובצעו התחברות עם הזדהות משרד החינוך. במסך הראשי, לחצו על קוביית <strong>"קיצורי דרך"</strong> ובחרו ב-<strong>"מודל על יסודי"</strong>.</p>
+            </div>
+            <div class="screenshot-grid row">
+                <img src="login.jpg_2.jpg" alt="התחברות" class="screenshot small">
+                <img src="identification.png" alt="הזדהות" class="screenshot small">
+                <img src="moodle-home.jpg_2.jpg" alt="מודל על יסודי" class="screenshot mt-2">
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="text-content">
+                <h3 class="text-2xl font-bold mb-3 flex items-center text-brand-purple">
+                    <span class="step-number">2</span> יצירת המרחב והגדרתו
+                </h3>
+                <p>לחצו על <strong>"+ מרחב חדש"</strong>, בחרו באפשרות <strong>"פיתוח תכנים במרחב למידה ריק"</strong>, מלאו את פרטי הכיתה שלכם (שכבה ומספר) ולחצו על "הבא" לאישור ההקמה.</p>
+                <p class="mt-4 text-sm font-semibold text-[#ff66c4]">שימו לב: יש לחזור על תהליך זה עבור כל כיתה בנפרד.</p>
+            </div>
+            <div class="screenshot-grid row">
+                <img src="add new_3.jpg" alt="מרחב חדש" class="screenshot small">
+                <img src="course-type-empty.png_3.png" alt="פיתוח תכנים ריק" class="screenshot small">
+                <img src="course-no-group.png_3.png" alt="ללא קבוצה" class="screenshot small">
+                <img src="course-settings-class.jpg_3.png" alt="הגדרת כיתה" class="screenshot small">
+                <img src="course-settings-next.png_3.jpg" alt="הבא" class="screenshot small">
+                <img src="course-creation-confirmation.png_3.png" alt="אישור יצירה" class="screenshot small">
+            </div>
+        </div>
+
+        <!-- חלק ב' -->
+        <h2 class="text-3xl text-brand-purple font-bold mb-10 mt-16 border-b-2 border-[#91e3fb] pb-2 inline-block">חלק ב׳ – ייבוא חומרים ועריכת נראות</h2>
+        
+        <div class="step-container">
+            <div class="text-content">
+                <h3 class="text-2xl font-bold mb-3 flex items-center text-brand-purple">
+                    <span class="step-number">3</span> ייבוא התכנים למרחב
+                </h3>
+                <p>במרחב הריק שיצרתם, פתחו את תפריט <strong>"אפשרויות נוספות"</strong> ולחצו על <strong>"שימוש חוזר בתכנים"</strong>. בחרו בייבוא מתוך "פשוט בעברית - מרחב לשכפול", ולחצו על "הבא" ו-"ביצוע יבוא" עד לסיום.</p>
+            </div>
+            <div class="screenshot-grid row">
+                <img src="more-options-reuse.png_2.png" alt="שימוש חוזר" class="screenshot small">
+                <img src="import-from-course.png_2.png" alt="יבוא תכנים" class="screenshot small">
+                <img src="next-all.png_2.png" alt="הבא" class="screenshot small">
+                <img src="next.png_2.png" alt="ביצוע יבוא" class="screenshot small">
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="text-content">
+                <h3 class="text-2xl font-bold mb-3 flex items-center text-brand-purple">
+                    <span class="step-number">4</span> עדכון שם ובאנר
+                </h3>
+                <p>תחת לשונית <strong>"הגדרות"</strong> במרחב הלימוד, עברו ל<strong>"עריכת הגדרות מרחב-לימוד"</strong>. תוכלו לערוך שם את שם המרחב. גללו מטה והעלו את תמונת הבאנר המעוצבת של התוכנית כדי שהמרחבים ייראו אחידים ומזמינים ("המרחבים שלי").</p>
+            </div>
+            <div class="screenshot-grid">
+                <img src="edit-course-all-fields.png_3.png" alt="עריכת הגדרות" class="screenshot">
+                <div class="flex flex-wrap gap-4">
+                    <img src="edit-program-name.png.png" alt="עריכת שם התוכנית" class="screenshot small">
+                    <img src="choose-banner.png_3.png" alt="בחירת באנר" class="screenshot small">
+                    <img src="save-course-image.jpg.jpg" alt="שמירת תמונת מרחב" class="screenshot mt-2">
+                    <img src="main-my-courses.jpg_2.jpg" alt="המרחבים שלי" class="screenshot">
+                </div>
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="text-content">
+                <h3 class="text-2xl font-bold mb-3 flex items-center text-brand-purple">
+                    <span class="step-number">5</span> המרחבים שלכם מוכנים
+                </h3>
+                <p>לאחר ההגדרה, התוצאה תיראה כך בתוך המרחב ובתצוגת כלל הקורסים שלכם. כל התכנים שיובאו מוכנים לעבודה.</p>
+            </div>
+            <div class="screenshot-grid row">
+                <img src="➔ course-before-edit.png_3.png" alt="המרחב לפני עריכה" class="screenshot small">
+                <img src="full-course-content.png.jpg" alt="המרחב המלא" class="screenshot small">
+                <img src="my-courses-after.jpg_2.jpg" alt="כל המרחבים שלי" class="screenshot">
+            </div>
+        </div>
+
+        <!-- חלק ג' -->
+        <h2 class="text-3xl text-brand-purple font-bold mb-10 mt-16 border-b-2 border-[#91e3fb] pb-2 inline-block">חלק ג׳ – שיוך תלמידים</h2>
+        <p class="text-lg font-bold text-brand-purple mb-8">עם סיום הקמת המרחבים לכל כיתה - יש לשייך תלמידים</p>
+
+        <div class="step-container">
+            <div class="text-content">
+                <h3 class="text-2xl font-bold mb-3 flex items-center text-brand-purple">
+                    <span class="step-number">6</span> יצירת אפשרות של שיוך עצמי לתלמיד:
+                </h3>
+                <p>המורה לוחץ על משתמשים, לוחץ על החץ הקטן ליד משתתפים רשומים , שיטת שיוך לתפקיד, שיוך עצמי ,  ומגדירים שמי שמקבל את הקישור יכול לשייך את עצמו.</p>
+                <p class="mt-3">המורה מעתיק את כתובת המרחב שלו , מהדף הראשי של המרחב החדש עם התכנים שיובאו. ונותן לתלמידים.</p>
+            </div>
+            <div class="screenshot-grid row">
+                <img src="articipants-tab.png" alt="משתתפים" class="screenshot small">
+                <img src="nrollment-methods.png.png" alt="שיטות שיוך" class="screenshot small">
+                <img src="self-enrollment-setup.png" alt="שיוך עצמי" class="screenshot small">
+                <img src="self-enrollment-active.png" alt="שיוך נקלט" class="screenshot small">
+            </div>
+        </div>
+
+        <div class="step-container">
+            <div class="text-content">
+                <h3 class="text-2xl font-bold mb-3 flex items-center text-brand-purple">
+                    <span class="step-number">7</span> הנחיות לתלמידים
+                </h3>
+                <p>התלמידים יכנסו לבית הספר הוירטואלי, יזדהו עם הזדהות אחידה, בלשונית חדשה ידביקו את הקישור ויצטרפו לסביבה.</p>
+                <p class="mt-3">בפעמים הבאות - בכניסה לבית הספר הוירטואלי, המרחבים שלי, יכלו לראות את המודל ולהכנס אליו .</p>
+            </div>
+        </div>
+        
+        <div class="text-center mt-20 mb-16">
+            <h2 class="text-5xl font-bold text-brand-pink font-regga">בהצלחה</h2>
+        </div>
+    </main>
+
+</body>
+</html>
